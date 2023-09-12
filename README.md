@@ -16,6 +16,12 @@ adaptable dengan men-connect ke repo toko-jo, memilih deployment branch (main), 
 python manage.py migrate && gunicorn toko_jo.wsgi, memilih nama dan domain web aplikasi, kemudian men-deploy aplikasi saya.
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-![MVT](https://github.com/johaneswisa/toko-jo/assets/119523455/a6ae27e8-d9a4-44fd-8df4-d5140b1b068f)
+![MVT_rev](https://github.com/johaneswisa/toko-jo/assets/119523455/315774d9-75e9-4a93-8c9f-c9a44802b591)
+Pada bagan, user me-request sebuah resource ke django. Django bekerja sebagai sebuah pengontrol dan akan mengecek resource yang tersedia di url. Kemudian pergi ke function yang match di views.py dan function di
+views.py akan mengambil web request dari urls.py dan memberi response web ke template (berkas html). Mungkin akan berinteraksi pula dengan models.py yaitu pergi ke data access layer di models.py. views kemudian
+me-render template dan django me-respond kembali ke user dan mengirim template sebagai response.
+
+3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+Kita menggunakan virtual environment agar 
 
 
