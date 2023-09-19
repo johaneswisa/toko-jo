@@ -34,4 +34,35 @@ Beberapa perbedaan ketiganya:
 -Di MVC, controller dan view memiliki hubungan one-to-many. Satu controller bisa memilih dari view berbeda-beda tergantung operasi. MVT bagian controller dilakukan oleh framework. Sementara di MVVM,
 beberapa view bisa di-map oleh satu ViewModel.
 
+# Tugas 3 PBP F
 
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+POST: POST digunakan untuk mengirim data ke suatu server untuk membuat/meng-update resource.
+GET: GET digunakan untuk meminta data dari resource tertentu.
+Notes tentang GET:
+Permintaan GET dapat di-cache
+Permintaan GET tetap ada dalam riwayat browser
+Permintaan GET dapat di-bookmark
+Permintaan GET tidak boleh digunakan saat menangani data sensitif
+Permintaan GET memiliki batasan panjang
+Permintaan GET hanya digunakan untuk meminta data (tidak memodifikasi)
+Notes tentang POST:
+Permintaan POST tidak pernah di-cache
+Permintaan POST tidak tersimpan dalam riwayat browser
+Permintaan POST tidak dapat dibookmark
+Permintaan POST tidak memiliki batasan panjang data
+sumber: https://www.w3schools.com/tags/ref_httpmethods.asp
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+XML lebih cocok untuk data yang memerlukan struktur yang sangat terinci dan validasi yang ketat, sementara JSON sering digunakan untuk pertukaran data yang lebih sederhana dan cepat. HTML, di sisi lain, digunakan untuk membangun halaman web dan tampilan konten di peramban web.
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+Dapat menyimpan data dalam bentuk array dan menjadikan transfer data menjadi lebih mudah.
+Sintaks yang lebih ringan dan berukuran lebih kecil.
+Mendukung beberapa bahasa pemrograman lain.
+Lebih cepat dalam parsing data di sisi server.
+sumber: https://www.dicoding.com/blog/apa-itu-json/
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Pertama-tama saya mengatur routing dari main/ ke / agar lebih sesuai dengan konvensi yang ada. Lalu saya mengimplementasi skeleton sebagai
+kerangka views agar dapat memastikan adanya konsistensi dalam desain situs web saya serta memperkecil kemungkinan terjadinya redundansi kode. Lalu saya membuat sebuah form sederhana untuk menginput data barang pada aplikasi sehingga nantinya saya dapat menambahkan data baru untuk ditampilkan pada halaman utama. Lalu di views.py folder main saya mengimplementasi fungsi-fungsi agar dapat mengembalikan data dalam bentuk XML, JSON, dan mengembalikan data berdasarkan ID dalam bentuk XML dan JSON. Lalu saya membuat routing URL untuk masing-masing views di urls.py
