@@ -65,4 +65,12 @@ sumber: https://www.dicoding.com/blog/apa-itu-json/
 
 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 Pertama-tama saya mengatur routing dari main/ ke / agar lebih sesuai dengan konvensi yang ada. Lalu saya mengimplementasi skeleton sebagai
-kerangka views agar dapat memastikan adanya konsistensi dalam desain situs web saya serta memperkecil kemungkinan terjadinya redundansi kode. Lalu saya membuat sebuah form sederhana untuk menginput data barang pada aplikasi sehingga nantinya saya dapat menambahkan data baru untuk ditampilkan pada halaman utama. Lalu di views.py folder main saya mengimplementasi fungsi-fungsi agar dapat mengembalikan data dalam bentuk XML, JSON, dan mengembalikan data berdasarkan ID dalam bentuk XML dan JSON. Lalu saya membuat routing URL untuk masing-masing views di urls.py
+kerangka views agar dapat memastikan adanya konsistensi dalam desain situs web saya serta memperkecil kemungkinan terjadinya redundansi kode. Lalu saya membuat sebuah form sederhana untuk menginput data barang pada aplikasi sehingga nantinya saya dapat menambahkan data baru untuk ditampilkan pada halaman utama; data item ditampilkan pada html. Lalu di views.py folder main saya mengimplementasi fungsi-fungsi agar dapat mengembalikan data dalam bentuk XML, JSON, dan mengembalikan data berdasarkan ID dalam bentuk XML dan JSON. Lalu saya membuat routing URL untuk masing-masing views di urls.py.
+
+5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+
+![Alt text](<Screenshot (328).png>)
+![Alt text](<Screenshot (327).png>)
+![Alt text](<Screenshot (326).png>)
+![Alt text](<Screenshot (325).png>)
+![Alt text](<Screenshot (324).png>)
