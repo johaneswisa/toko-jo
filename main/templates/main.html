@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Toko Jo Page</h1>
+    <body class="bg-secondary"></body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Toko Jo Page</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            </ul>
+          </div>
+        </div>
+      </nav>
 
     <h5>Name:</h5>
     <p>{{name}}</p>
@@ -34,11 +47,11 @@
             Add New Item
         </button>
     </a>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
     <a href="{% url 'main:logout' %}">
         <button>
             Logout
         </button>
     </a>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
     
 {% endblock content %}
