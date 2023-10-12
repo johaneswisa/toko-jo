@@ -105,4 +105,47 @@ Secara umum, cookie sangat aman bila diterapkan dengan benar. Namun, ada beberap
 
 
 5.	Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-Pertama-tama, saya membuat fungsi dan form registrasi menggunakan UserCreationForm di views.py. Kemudian saya membuat register.html sebagai template, dan mengimpor dan menambahkan path url fungsi di urls.py, agar dapat diakses. Kemudian saya melakukan hal yang serupa seperti di atas untuk fungsi login, namun saya meng-import authenticate dan login agar digunakan untuk melakukan autentikasi dan login jika autentikasi berhasil; dan membuat perubahan bersesuaian di fungsi login views. Kemudian saya membuat fungsi logout dengan meng-import logout di views dan menggunakan logout(request) untuk menghapus sesi pengguna yang saat ini masuk dan return redirect('main:login') untuk mengarahkan pengguna ke halaman login dalam aplikasi Django di fungsi logout. Saya menambahkan button logout di main.html dan menambahkan path url di urls. Lalu saya menambahkan @login_required(login_url='/login') di views untuk mengharuskan pengguna masuk (login) sebelum dapat mengakses suatu halaman web. Kemudian saya menggunakan cookies dengan menambahkan data last login dan menampilkannya ke halaman main. Caranya adalah saya menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login di fungsi login_user di views, kemudian saya menambahkan informasi cookie last_login di show_main agar ditampilkan di halaman web. Saya kemudian mengimplement code di logout_user untuk menghapus cookie last_login saat pengguna melakukan logout, dan menambahkan potongan kode di main.html untuk menampilkan data last login. Kemudian saya membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal. Kemudian saya akan menghubungkan Item dengan User. Saya menambahkan code user = models.ForeignKey(User, on_delete=models.CASCADE) di class Item di models untuk menghubungkan satu produk dengan satu user melalui sebuah relationship, dimana sebuah produk pasti terasosiasikan dengan seorang user. Kemudian saya menambahkan code di main/views agar ada Parameter commit=False yang digunakan pada potongan kode diatas berguna untuk mencegah Django agar tidak langsung menyimpan objek yang telah dibuat dari form langsung ke database. Hal tersebut memungkinkan untuk memodifikasi terlebih dahulu objek tersebut sebelum disimpan ke database. Pada kasus ini, field user akan terisi dengan objek User dari return value request.user yang sedang terotorisasi untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang login. Kemudian saya mengubah show_main agar menampilkan objek Item yang terasosiasikan dengan pengguna yang sedang login dan menampilkan username pengguna yang login dengan request.user.username. Kemudian saya melakukan migrasi model dan mengaplikasikan migrasi. 
+Pertama-tama, saya membuat fungsi dan form registrasi menggunakan UserCreationForm di views.py. Kemudian saya membuat register.html sebagai template, dan mengimpor dan menambahkan path url fungsi di urls.py, agar dapat diakses. Kemudian saya melakukan hal yang serupa seperti di atas untuk fungsi login, namun saya meng-import authenticate dan login agar digunakan untuk melakukan autentikasi dan login jika autentikasi berhasil; dan membuat perubahan bersesuaian di fungsi login views. Kemudian saya membuat fungsi logout dengan meng-import logout di views dan menggunakan logout(request) untuk menghapus sesi pengguna yang saat ini masuk dan return redirect('main:login') untuk mengarahkan pengguna ke halaman login dalam aplikasi Django di fungsi logout. Saya menambahkan button logout di main.html dan menambahkan path url di urls. Lalu saya menambahkan @login_required(login_url='/login') di views untuk mengharuskan pengguna masuk (login) sebelum dapat mengakses suatu halaman web. Kemudian saya menggunakan cookies dengan menambahkan data last login dan menampilkannya ke halaman main. Caranya adalah saya menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login di fungsi login_user di views, kemudian saya menambahkan informasi cookie last_login di show_main agar ditampilkan di halaman web. Saya kemudian mengimplement code di logout_user untuk menghapus cookie last_login saat pengguna melakukan logout, dan menambahkan potongan kode di main.html untuk menampilkan data last login. Kemudian saya membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal. Kemudian saya akan menghubungkan Item dengan User. Saya menambahkan code user = models.ForeignKey(User, on_delete=models.CASCADE) di class Item di models untuk menghubungkan satu produk dengan satu user melalui sebuah relationship, dimana sebuah produk pasti terasosiasikan dengan seorang user. Kemudian saya menambahkan code di main/views agar ada Parameter commit=False yang digunakan pada potongan kode diatas berguna untuk mencegah Django agar tidak langsung menyimpan objek yang telah dibuat dari form langsung ke database. Hal tersebut memungkinkan untuk memodifikasi terlebih dahulu objek tersebut sebelum disimpan ke database. Pada kasus ini, field user akan terisi dengan objek User dari return value request.user yang sedang terotorisasi untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang login. Kemudian saya mengubah show_main agar menampilkan objek Item yang terasosiasikan dengan pengguna yang sedang login dan menampilkan username pengguna yang login dengan request.user.username. Kemudian saya melakukan migrasi model dan mengaplikasikan migrasi.
+
+# Tugas 6 PBP F
+1.	Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+2.	Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+3.	Jelaskan penerapan asynchronous programming pada AJAX.
+4.	Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+5.	Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Jawaban:
+
+1.	Pada proses synchronous setiap fungsi dijalankan berurutan, untuk dapat menjalankan fungsi berikutnya maka kita harus menunggu fungsi sebelumnya selesai (blocking). Berbeda dengan proses asynchronous dimana kita tidak perlu menunggu suatu fungsi selesai dijalankan untuk menjalankan fungsi lainnya (non-blocking).
+Sumber: https://prosigmaka.com/article/apa-itu-asynchronous-programming/#:~:text=Pada%20proses%20synchronous%20setiap%20fungsi,lainnya%20(non%2Dblocking).
+
+2.	Salah satu teknik pemrograman, yang konsep kerjanya tergantung dari kejadian atau event tertentu. Contoh: Add Product by Ajax di tugas.
+Sumber: https://osf.io/3s8tw/download
+
+3.	Penjelasan: (sumber: Tutorial 5)
+•	Sebuah event terjadi pada halaman web (contohnya tombol submit data ditekan)
+•	Sebuah XMLHttpRequest object dibuat oleh JavaScript
+•	XMLHttpRequest object mengirimkan request ke server
+•	Server memproses request tersebut
+•	Server mengembalikan response kembali kepada halaman web
+•	Response dibaca oleh JavaScript
+•	Aksi berikutnya akan dipicu oleh JavaScript sesuai dengan langkah yang dibuat (contohnya memperbarui data di halaman tersebut)
+
+4.	Fetch API menyediakan antarmuka JavaScript untuk mengakses dan memanipulasi bagian-bagian protokol, seperti requests dan responses. API ini juga menyediakan metode fetch() global yang menyediakan cara yang mudah dan logis untuk mengambil sumber daya secara asinkronus pada seluruh jaringan.
+
+Tidak seperti XMLHttpRequest yang merupakan API berbasis callback, Fetch API berbasis Promise dan menyediakan alternatif yang lebih baik dan dapat dengan mudah digunakan pada service worker. Fetch API juga mengintegrasikan konsep HTTP tingkat lanjut seperti CORS dan ekstensi lain ke HTTP.
+
+jQuery adalah library yang berisi beberapa fitur berikut:
+● Manipulasi HTML/DOM
+● Manipulasi CSS
+● Methods event HTML
+● Efek dan animasi
+● AJAX
+● Utilities
+
+Menurut saya lebih baik Fetch API, karena API ini merupakan pengganti yang lebih kuat dan fleksibel untuk XMLHttpRequest. Fetch API secara umum digunakan untuk mengimplementasikan AJAX secara lebih mudah daripada AJAX dengan XMLHttpRequest. Fetch API juga mendukung lebih banyak metode HTTP dan header HTTP daripada AJAX biasa.
+
+Sumber: (Slide dan tutorial PBP).
+
+5.	Pertama saya membuat fungsi pada views untuk mengembalikan data JSON. Fungsi ini akan digunakan untuk menampilkan data produk pada HTML dengan menggunakan fetch, lalu saya membuat fungsi pada views untuk menambahkan produk baru ke basis data dengan AJAX. Lalu saya menambahkan routing untuk fungsi get_product_json dan add_product_ajax di urls.py. Lalu saya menampilkan data product dengan Fetch() API dengan mengubah dan menambahkan code (membuat script) di main.html pada main/templates. Lalu saya membuat modal sebagai form untuk menambahkan produk di main.html. Lalu saya membuat fungsi JavaScript baru untuk menambahkan data berdasarkan input ke basis data secara AJAX dengan memanfaatkan modal dengan form. Lalu saya melakukan perintah collectstatic, bertujuan untuk mengumpulkan file static dari setiap aplikasi ke dalam suatu folder yang dapat dengan mudah disajikan pada produksi. 
+
