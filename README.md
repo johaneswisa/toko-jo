@@ -3,6 +3,7 @@ Nama: Johanes Wisanggeni
 NPM: 2206032425
 
 [Aplikasi adaptable](https://toko-jo.adaptable.app/)
+[Link aplikasi PaaS PBP](http://johanes-wisanggeni-tugas.pbp.cs.ui.ac.id)
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 Langkah pertama adalah saya membuat repo public toko-jo. Lalu saya membuat direktori lokal toko-jo dan saya inisiasi dengan git. Lalu saya menghubungkan keduanya. Di direktori toko-jo, saya membuat virtual
 environment, menyiapkan dan memasang dependencies, kemudian membuat proyek django toko-jo. Lalu saya menambahkan * pada ALLOWED_HOSTS di settings.py untuk keperluan deployment. Lalu saya
