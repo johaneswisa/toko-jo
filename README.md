@@ -108,6 +108,58 @@ Secara umum, cookie sangat aman bila diterapkan dengan benar. Namun, ada beberap
 5.	Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 Pertama-tama, saya membuat fungsi dan form registrasi menggunakan UserCreationForm di views.py. Kemudian saya membuat register.html sebagai template, dan mengimpor dan menambahkan path url fungsi di urls.py, agar dapat diakses. Kemudian saya melakukan hal yang serupa seperti di atas untuk fungsi login, namun saya meng-import authenticate dan login agar digunakan untuk melakukan autentikasi dan login jika autentikasi berhasil; dan membuat perubahan bersesuaian di fungsi login views. Kemudian saya membuat fungsi logout dengan meng-import logout di views dan menggunakan logout(request) untuk menghapus sesi pengguna yang saat ini masuk dan return redirect('main:login') untuk mengarahkan pengguna ke halaman login dalam aplikasi Django di fungsi logout. Saya menambahkan button logout di main.html dan menambahkan path url di urls. Lalu saya menambahkan @login_required(login_url='/login') di views untuk mengharuskan pengguna masuk (login) sebelum dapat mengakses suatu halaman web. Kemudian saya menggunakan cookies dengan menambahkan data last login dan menampilkannya ke halaman main. Caranya adalah saya menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login di fungsi login_user di views, kemudian saya menambahkan informasi cookie last_login di show_main agar ditampilkan di halaman web. Saya kemudian mengimplement code di logout_user untuk menghapus cookie last_login saat pengguna melakukan logout, dan menambahkan potongan kode di main.html untuk menampilkan data last login. Kemudian saya membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal. Kemudian saya akan menghubungkan Item dengan User. Saya menambahkan code user = models.ForeignKey(User, on_delete=models.CASCADE) di class Item di models untuk menghubungkan satu produk dengan satu user melalui sebuah relationship, dimana sebuah produk pasti terasosiasikan dengan seorang user. Kemudian saya menambahkan code di main/views agar ada Parameter commit=False yang digunakan pada potongan kode diatas berguna untuk mencegah Django agar tidak langsung menyimpan objek yang telah dibuat dari form langsung ke database. Hal tersebut memungkinkan untuk memodifikasi terlebih dahulu objek tersebut sebelum disimpan ke database. Pada kasus ini, field user akan terisi dengan objek User dari return value request.user yang sedang terotorisasi untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang login. Kemudian saya mengubah show_main agar menampilkan objek Item yang terasosiasikan dengan pengguna yang sedang login dan menampilkan username pengguna yang login dengan request.user.username. Kemudian saya melakukan migrasi model dan mengaplikasikan migrasi.
 
+# Tugas 5 PBP F
+
+1.	Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+2.	Jelaskan HTML5 Tag yang kamu ketahui.
+3.	 Jelaskan perbedaan antara margin dan padding.
+4.	 Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+5.	 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+•	Selector Universal (*):
+Manfaat: Memilih semua elemen dalam dokumen HTML.
+Waktu yang Tepat: Saat perlu mempengaruhi semua elemen dalam dokumen.<br>
+•	Selector Tag (Element Selector):
+Manfaat: Memilih semua elemen dengan nama tag tertentu (misalnya, p untuk paragraf atau h1 untuk judul level 1).
+Waktu yang Tepat: Cocok digunakan ketika Anda ingin memengaruhi semua elemen dengan tag tertentu dalam dokumen.<br>
+•	Selector Class (.classname):
+Manfaat: Memilih semua elemen yang memiliki atribut class dengan nilai tertentu.
+Waktu yang Tepat: Berguna ketika Anda ingin memberikan gaya khusus kepada sekelompok elemen dengan class yang sama.<br>
+•	Selector ID (#idname):
+Manfaat: Memilih elemen dengan atribut id tertentu.
+Waktu yang Tepat: Berguna untuk menargetkan elemen spesifik dengan ID tertentu, dan biasanya digunakan hanya sekali per halaman karena ID harus unik.<br>
+•	Selector Universal dalam Konteks (descendant selectors, child selectors, sibling selectors):
+Manfaat: Memilih elemen berdasarkan hubungannya dengan elemen lain dalam dokumen.
+Waktu yang Tepat: Digunakan ketika Anda ingin memilih elemen yang berada dalam hierarki tertentu, seperti elemen anak, elemen saudara, atau elemen yang dalam elemen lain.<br>
+•	Selector Pseudo-Class (:hover, :nth-child, dsb.):
+Manfaat: Memungkinkan Anda memilih elemen berdasarkan status atau posisi mereka dalam dokumen.
+Waktu yang Tepat: Berguna untuk memberikan gaya yang berbeda kepada elemen saat interaksi pengguna terjadi (contoh: mengubah warna teks saat kursor mengarah, atau merubah tampilan elemen ke-n dalam daftar).<br>
+•	Selector Pseudo-Element (::before, ::after, dsb.):
+Manfaat: Memungkinkan Anda menambahkan isi tambahan ke elemen tanpa harus menyisipkan elemen HTML baru.
+Waktu yang Tepat: Berguna saat Anda ingin menambahkan elemen virtual (misalnya, ikon) sebelum atau sesudah elemen yang ada.<br>
+Sumber: https://chat.openai.com/c/2f0cc243-7047-46d4-bc2c-f37d1c1feeb9
+
+2. a	Tag untuk membuat hyperlink <br>
+html	Tag untuk membuat sebuah dokumen HTML <br>
+title	Tag untuk membuat judul dari sebuah halaman <br>
+body	Tag untuk membuat tubuh dari sebuah halaman <br>
+h1 to h6	Tag untuk membuat heading <br>
+p	Tag untuk membuat paragraf <br>
+br Memasukan satu baris putus <br>
+hr	Tag untuk membuat perubahan dasar kata didalam isi <br>
+div	Tag untuk membuat sebuah bagian dalam dokumen <br>
+Sumber: https://gilacoding.com/read/tag-tag-pada-html-beserta-fungsinya
+  
+3.	Margin digunakan untuk menata letak dari sisi luar, sedangkan padding digunakan untuk menata letak dari sisi dalam. Perbedaan lainnya terletak pada warna. Margin biasanya tidak memiliki warna, sedangkan padding bisa menggunakan unsur warna sesuai dengan warna background halamannya.
+Sumber: https://www.rumahweb.com/journal/padding-adalah/#:~:text=Secara%20garis%20besar%2C%20margin%20digunakan,sesuai%20dengan%20warna%20background%20halamannya.
+
+4.	Secara umum, Bootstrap lebih difokuskan kepada tingkat responsif dan mobilitas-nya, sedangkan untuk Tailwind lebih mengutamakan utilitasnya. Jika kita bandingkan dari segi responsif, tentu Bootstrap akan lebih unggul dalam hal ini, dikarenakan Bootstrap sangat mementingkan responsif dan mobilitasnya. Namun sayang, Bootstrap memiliki framework yang jauh lebih besar dalam segi size, sehingga memungkinkan untuk mengurangi efisiensi ataupun tidak. Jika kita kembali melihat Tailwind yang masih muda, Tailwind berhasil memikat hati berkat tingkat utilitasnya dan plugins-nya yang memungkinkan  kita untuk bisa lebih bebas untuk men-design UI kita. Sayang, Tailwind masih dalam pengembangan dan mungkin dalam beberapa versi-nya akan memberikan bug.
+Sumber: https://dumbways.id/blog/tailwind-vs-bootstrap
+
+5.	Pertama-tama saya menambahkan bootstrap css dan js ke aplikasi. Lalu saya mengkustomisasi halaman login, register, dan tambah inventori dan mengganti background color ke bg-light. Lalu saya juga menambahkan navbar di daftar inventori mengikuti dokumentasi navbar: https://getbootstrap.com/docs/5.3/components/navbar/ yang saya warnai hitam; dan mengganti background colornya juga.
+
 # Tugas 6 PBP F
 1.	Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
 2.	Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
